@@ -24,7 +24,17 @@ User → CloudFront → Amazon S3 (Static Website Hosting)
 - CloudFront distribution disabled after testing to avoid charges
 
 ## 📸 Screenshots
-Screenshots available upon request.
+## 📸 Project Screenshots
+
+### S3 Static Website
+![S3](screenshots/s3-static-hosting.png)
+
+### CloudFront Distribution
+![CloudFront](screenshots/cloudfront-origin.png)
+
+### Website via CloudFront
+![Live](screenshots/cloudfront-url-working.png)
+
 
 ## 👤 Author
 Anurag Algikar
