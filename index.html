@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Welcome | My Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Basic SEO -->
+  <meta name="description" content="Welcome to my website hosted on AWS.">
+  <meta name="author" content="Your Name">
+
+  <!-- Simple reset and base styles -->
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                   sans-serif;
+      line-height: 1.5;
+      color: #111827;
+      background: radial-gradient(circle at top, #1d4ed8 0, #020617 55%, #000 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 1.25rem;
+      max-width: 720px;
+      width: 100%;
+      padding: 2.5rem 2rem;
+      box-shadow:
+        0 20px 40px rgba(15, 23, 42, 0.7),
+        0 0 0 1px rgba(148, 163, 184, 0.2);
+      backdrop-filter: blur(16px);
+      color: #e5e7eb;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(52, 211, 153, 0.1);
+      color: #6ee7b7;
+      border: 1px solid rgba(52, 211, 153, 0.4);
+      margin-bottom: 1.25rem;
+    }
+
+    .badge-dot {
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 999px;
+      background: #6ee7b7;
+      box-shadow: 0 0 12px rgba(52, 211, 153, 0.9);
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 3vw + 1rem, 2.9rem);
+      margin-bottom: 0.75rem;
+      color: #f9fafb;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #38bdf8, #a855f7, #f97316);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+    }
+
+    p.lead {
+      font-size: 1rem;
+      max-width: 36rem;
+      color: #cbd5f5;
+      margin-bottom: 1.75rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.25rem;
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-bottom: 1.75rem;
+    }
+
+    .meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .meta-dot {
+      width: 0.3rem;
+      height: 0.3rem;
+      border-radius: 999px;
+      background: #4b5563;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid transparent;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out,
+                  background 0.12s ease-out, border-color 0.12s ease-out,
+                  color 0.12s ease-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: #f9fafb;
+      box-shadow:
+        0 12px 22px rgba(37, 99, 235, 0.35),
+        0 0 0 1px rgba(59, 130, 246, 0.5);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 18px 30px rgba(37, 99, 235, 0.45),
+        0 0 0 1px rgba(129, 140, 248, 0.6);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #e5e7eb;
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(209, 213, 219, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .small-note {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .small-note code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
+        Consolas, "Liberation Mono", "Courier New", monospace;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.12rem 0.35rem;
+      border-radius: 0.35rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: #e5e7eb;
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 1.9rem 1.4rem;
+      }
+
+      .actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" aria-labelledby="site-title">
+    <div class="badge">
+      <span class="badge-dot" aria-hidden="true"></span>
+      <span>Live on AWS</span>
+    </div>
+
+    <h1 id="site-title">
+      Welcome to <span class="highlight">My Website</span>
+    </h1>
+
+    <p class="lead">
+      This is a modern, responsive landing page running on Amazon Web Services.
+      Replace this text and buttons with your own project description and links.
+    </p>
+
+    <div class="meta" aria-label="Deployment details">
+      <span>
+        <span class="meta-dot" aria-hidden="true"></span>
+        Hosted on Amazon S3 / EC2
+      </span>
+      <span>
+        <span class="meta-dot" aria-hidden="true"></span>
+        Secure • Fast • Scalable
+      </span>
+    </div>
+
+    <div class="actions">
+      <a class="btn-primary" href="#get-started">
+        Get Started
+      </a>
+      <a class="btn-ghost" href="#learn-more">
+        Learn more
+      </a>
+    </div>
+
+    <p class="small-note">
+      Tip: Edit this page by updating the <code>index.html</code> file in your AWS
+      bucket or server, then refresh the browser to see your changes.
+    </p>
+  </main>
+</body>
+</html>
